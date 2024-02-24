@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  desafio-01-app:
+    container_name: desafio-01-app
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
