@@ -3,7 +3,11 @@ version: '3'
 services:
   desafio-01-app:
     container_name: desafio-01-app
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - WEATHER_API_KEY=${WEATHER_API_KEY}
     ports:
       - "8080:8080"
     volumes:
