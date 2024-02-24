@@ -1,6 +1,6 @@
-# documentação de ajuda com o google cloud-run
+# Documentação de ajuda com o google cloud-run
 
-# Subindo um Dockerfile no Google Cloud Run
+## Subindo um Dockerfile no Google Cloud Run
 
 ## Pré-requisitos
 Antes de começar, certifique-se de que você tem o `gcloud` instalado e configurado em seu sistema.
