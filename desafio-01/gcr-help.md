@@ -36,15 +36,15 @@ Antes de começar, certifique-se de que você tem o `gcloud` instalado e configu
    Navegue até o diretório que contém o seu Dockerfile e construa sua imagem Docker com o seguinte comando (substitua `PROJECT-ID` pelo ID do seu projeto GCP e `helloworld` pelo nome que você deseja dar à sua imagem):
 
     ```shell
-    gcloud builds submit --tag gcr.io/PROJECT-ID/helloworld
+    gcloud builds submit --tag gcr.io/PROJECT-ID/goexpert-lab-01
     ```
 
 5. **Implantando a imagem no Cloud Run**
 
-   Para implantar sua imagem no Cloud Run, use o seguinte comando:
+   Para implantar sua imagem no Cloud Run, use o seguinte comando (substitua `SUA_KEY` pela api key do weather)::
 
     ```shell
-    gcloud run deploy --image gcr.io/PROJECT-ID/helloworld --platform managed
+    gcloud run deploy --image gcr.io/PROJECT-ID/goexpert-lab-01 --platform managed --update-env-vars=PROJECT_ID=SUA_KEY
     ```
 
 Agora a sua imagem Docker deve estar rodando no Google Cloud Run! Você pode acessar os detalhes do serviço (incluindo a URL na qual o seu serviço estará disponível) no console do Cloud Run.
