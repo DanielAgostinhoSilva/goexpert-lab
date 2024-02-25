@@ -71,3 +71,8 @@ Antes de começar, certifique-se de que você tem um `api key do weather` caso v
     ```shell
     curl http://localhost:8080/weather/SEU-CEP
     ```
+
+4. **Conclusão**
+
+   Por  motivo de segurança por favor entre em contato na plataforma ou no discord para que eu posso informa o endpoint da api no google cloud run.
+    
