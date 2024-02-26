@@ -74,5 +74,5 @@ Antes de começar, certifique-se de que você tem um `api key do weather` caso v
 
 4. **Conclusão**
 
-   Por  motivo de segurança por favor entre em contato na plataforma ou no discord para que eu posso informa o endpoint da api no google cloud run.
-    
+   Link para da api(substitua `SEU_CEP` pelo cep que deseja pesquisar o clima): https://goexpert-lab-01-25juq2f6la-ue.a.run.app/weather/SEU_CEP 
+   
