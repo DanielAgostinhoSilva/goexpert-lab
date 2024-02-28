@@ -23,6 +23,10 @@ type ViaCepDto struct {
 	Siafi       string `json:"siafi"`
 }
 
+func (v *ViaCepDto) isValidLocation() bool {
+	return len(v.Localidade) > 0
+}
+
 type ViaCepAdapter struct {
 	config env.EnvConfig
 }
@@ -63,6 +67,10 @@ func (v *ViaCepAdapter) GetZipCode(cep string) (*ViaCepDto, *commons.Problem) {
 	if err != nil {
 		log.Printf("Error making GET request: %v\n", err)
 		return nil, commons.NewInternalServerError(err.Error())
+	}
+
+	if !viaCep.isValidLocation() {
+		return nil, commons.NewError404("can not find zipcode", "can not find zipcode")
 	}
 
 	return viaCep, nil
