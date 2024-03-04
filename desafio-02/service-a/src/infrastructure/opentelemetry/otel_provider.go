@@ -20,7 +20,7 @@ func InitProvider(serviceName, collectorUrl string) (func(ctx context.Context) e
 	if err != nil {
 		return nil, fmt.Errorf("faled to create resource: %w", err)
 	}
-	ctx, cancel := context.WithTimeout(ctx, time.Second)
+	ctx, cancel := context.WithTimeout(ctx, time.Second*5)
 	defer cancel()
 	conn, err := grpc.DialContext(ctx, collectorUrl,
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
