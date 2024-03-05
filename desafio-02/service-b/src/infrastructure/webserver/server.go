@@ -1,7 +1,7 @@
 package webserver
 
 import (
-	"github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-a/src/infrastructure/webserver/api"
+	"github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-b/src/infrastructure/webserver/api"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/prometheus/client_golang/prometheus/promhttp"

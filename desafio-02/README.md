@@ -72,7 +72,7 @@ Antes de começar, certifique-se de que você tem um `api key do weather` caso v
     export WEATHER_API_KEY=SUA_KEY
     ```
    
-   Outra opção edite o arquivo .env (substitua `informe aqui sua api key do weatherapi` pela api key do weather):
+   Outra opção edite o arquivo serviceb/.env (substitua `informe aqui sua api key do weatherapi` pela api key do weather):
 
 
 2. **Executar a aplicação**
@@ -89,10 +89,14 @@ Antes de começar, certifique-se de que você tem um `api key do weather` caso v
    Use o seguinte comando para realizar uma consulta no sistema de temperatura(substitua `SEU-CEP` pelo CEP que deseja consultar):
 
     ```shell
-    curl http://localhost:8080/weather/SEU-CEP
+    curl --location 'localhost:8080/weather' \
+    --header 'Content-Type: application/json' \
+    --data '{
+    "cep": "SEU-CEP"
+    }'
     ```
 
-4. **Conclusão**
-
-   Link para da api(substitua `SEU_CEP` pelo cep que deseja pesquisar o clima): https://goexpert-lab-01-25juq2f6la-ue.a.run.app/weather/SEU_CEP 
+5. **Conclusão**
+    
+    Link para do [zipkin-local](http://localhost:9411/)
    

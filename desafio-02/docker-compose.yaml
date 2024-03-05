@@ -34,5 +34,17 @@ services:
       dockerfile: Dockerfile
     environment:
       - OTEL_EXPORTER_OTLP_ENDPOINT=otel-collector:4317
+      - SERVICE_B_URI=http://service-b:8081
     ports:
       - "8080:8080"
+
+  service-b:
+    container_name: service-b
+    build:
+      context: ./service-b
+      dockerfile: Dockerfile
+    environment:
+      - WEATHER_API_KEY=${WEATHER_API_KEY}
+      - OTEL_EXPORTER_OTLP_ENDPOINT=otel-collector:4317
+    ports:
+      - "8081:8081"

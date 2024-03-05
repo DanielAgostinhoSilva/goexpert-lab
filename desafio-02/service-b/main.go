@@ -2,12 +2,13 @@ package main
 
 import (
 	"context"
-	"github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-a/src/application"
-	"github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-a/src/infrastructure/env"
-	"github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-a/src/infrastructure/opentelemetry"
-	"github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-a/src/infrastructure/sevice_b_adapter"
-	"github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-a/src/infrastructure/webserver"
-	"github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-a/src/infrastructure/webserver/api"
+	"github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-b/src/application"
+	"github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-b/src/infrastructure/env"
+	"github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-b/src/infrastructure/opentelemetry"
+	"github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-b/src/infrastructure/viacepapi"
+	"github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-b/src/infrastructure/weatherapi"
+	"github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-b/src/infrastructure/webserver"
+	"github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-b/src/infrastructure/webserver/api"
 	"go.opentelemetry.io/otel"
 	"log"
 	"net/http"
@@ -36,8 +37,10 @@ func main() {
 	}()
 
 	tracer := otel.Tracer("microservice-tracer")
-	serviceB := sevice_b_adapter.NewServiceBAdapter(*cfg)
-	controller := api.NewWeatherController(tracer, application.NewFindWeatherUseCase(serviceB))
+	findCepUseCase := application.NewFindCepUseCase(viacepapi.NewViaCepAdapter(*cfg))
+	findWeatherUseCase := application.NewFindWeatherUseCase(weatherapi.NewWeatherAdapter(*cfg))
+
+	controller := api.NewWeatherController(tracer, findCepUseCase, findWeatherUseCase)
 	server := webserver.NewWebServer(controller)
 	router := server.CreateServer()
 

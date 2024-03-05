@@ -1,16 +1,16 @@
-module github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-a
+module github.com/DanielAgostinhoSilva/goexpert-lab/desafio-02/service-b
 
-go 1.20
+go 1.22.0
 
 require (
+	github.com/DanielAgostinhoSilva/goexpert-lab/desafio-01 v0.0.0-20240304220255-c45786dba42f
 	github.com/go-chi/chi/v5 v5.0.12
 	github.com/prometheus/client_golang v1.19.0
 	github.com/spf13/viper v1.18.2
 	go.opentelemetry.io/otel v1.24.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.24.0
 	go.opentelemetry.io/otel/sdk v1.24.0
-	go.opentelemetry.io/otel/trace v1.24.0
-	google.golang.org/grpc v1.62.0
+	google.golang.org/grpc v1.61.1
 )
 
 require (
@@ -38,6 +38,7 @@ require (
 	github.com/subosito/gotenv v1.6.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.24.0 // indirect
 	go.opentelemetry.io/otel/metric v1.24.0 // indirect
+	go.opentelemetry.io/otel/trace v1.24.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.1.0 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.9.0 // indirect
@@ -45,8 +46,8 @@ require (
 	golang.org/x/net v0.20.0 // indirect
 	golang.org/x/sys v0.17.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20240123012728-ef4313101c80 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20240123012728-ef4313101c80 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20240102182953-50ed04b92917 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240102182953-50ed04b92917 // indirect
 	google.golang.org/protobuf v1.32.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
